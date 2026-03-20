@@ -5,8 +5,8 @@ function login(user, pwd) {
         return { error: '参数不完整' };
     }
 
-    // 密码应从安全存储获取，此处为示例
-    const storedPassword = '123456';
+    // 密码应从环境变量或安全配置获取，禁止明文存储
+    const storedPassword = process.env.USER_PASSWORD || '';
 
     if (user === 'admin' && pwd === storedPassword) {
         return true;
